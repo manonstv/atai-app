@@ -1,0 +1,744 @@
+/*
+* Projet : profil ATAI
+* Propriétaire : justemarried.variousforum.code
+* Crédits : code par Tuski de Just Married !
+*/
+
+/* ==================================================
+    VARIABLES
+===================================================== */
+
+:root {
+    /*  Couleurs principales */
+    --ataiv2-primary-color: #a1265a;
+    --ataiv2-secondary-color: #F1BBD5;
+    --ataiv2-medium-gray: #cccccc;
+    --ataiv2-text-color: #fafafa;
+    
+    /*  Styles du téléphone */
+    --ataiv2-device-bg-color: #f9f9f9; /* Couleur de fond */
+    --ataiv2-device-width: 440px; /* Largeur */
+    --ataiv2-device-height: 800px; /* Hauteur */
+    --ataiv2-device-border: 2px solid var(--ataiv2-medium-gray); /* Bords */
+    --ataiv2-device-radius: 20px; /* Coins arrondis */
+    --ataiv2-device-shadow: rgba(0,0,0,.1) 2px 2px 5px; /* Ombre */
+    --ataiv2-device-padding: 28px 12px; /* Marges intérieures */
+    
+    /*  Styles de l'écran de téléphone */
+    --ataiv2-screen-bg-color: var(--ataiv2-primary-color); /* Couleur de fond */
+    --ataiv2-screen-bg-image: linear-gradient(35deg, #a1265a, #a62b5f, #ac3165, #b0376a, #b53e70, #b94475, #b9507c, #b85b82); /* Dégradé sur le fond*/
+
+    /*  Styles de l'app ATAI */
+    --ataiv2-app-scrollbar-width: thin;
+    --ataiv2-app-scrollbar-color: #f9f9f9;
+    --ataiv2-notif-bg: #ffffff;
+    --ataiv2-app-scrollbar-background: transparent;
+    --ataiv2-app-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='900' height='1400' preserveAspectRatio='none' viewBox='0 0 900 1400'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1021%26quot%3b)' fill='none'%3e%3crect width='900' height='1400' x='0' y='0' fill='rgba(173%2c 65%2c 111%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c613.059C118.494%2c624.417%2c248.702%2c605.218%2c339.415%2c528.14C427.472%2c453.319%2c414.781%2c316.205%2c469.285%2c214.315C529.039%2c102.611%2c673.519%2c29.811%2c673.753%2c-96.871C673.987%2c-223.218%2c573.922%2c-335.149%2c470.436%2c-407.635C376.233%2c-473.618%2c252.3%2c-454.953%2c138.523%2c-471.766C42.176%2c-486.003%2c-50.589%2c-515.951%2c-146.459%2c-498.794C-249.94%2c-480.274%2c-349.488%2c-440.888%2c-427.535%2c-370.461C-511.819%2c-294.406%2c-585.553%2c-198.874%2c-603.125%2c-86.716C-620.781%2c25.978%2c-577.776%2c138.79%2c-522.993%2c238.843C-470.885%2c334.011%2c-388.265%2c403.713%2c-300.027%2c466.85C-207.68%2c532.927%2c-113.034%2c602.225%2c0%2c613.059' fill='%23a43e69'%3e%3c/path%3e%3cpath d='M900 2040.594C1025.448 2067.392 1171.291 2058.277 1271.933 1978.738 1371.282 1900.22 1366.024 1751.911 1413.705 1634.601 1458.877 1523.464 1566.855 1425.216 1544.848 1307.285 1522.851 1189.408 1378.435 1143.904 1304.519 1049.483 1225.092 948.0219999999999 1211.388 790.254 1095.694 733.529 978.149 675.896 834.002 712.041 711.738 758.839 595.136 803.47 494.8 885.19 426.471 989.685 363.082 1086.627 348.817 1204.405 344.696 1320.159 340.919 1426.275 354.331 1532.651 403.798 1626.608 451.595 1717.394 539.082 1773.286 617.863 1839.0140000000001 708.4490000000001 1914.591 784.63 2015.9479999999999 900 2040.594' fill='%23b64475'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1021'%3e%3crect width='900' height='1400' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e"); /* Fond d'écran de l'app */
+    --ataiv2-app-nav-height: 60px;
+}
+
+/* ==================================================
+    NORMALISATION DES STYLES
+===================================================== */
+
+.atai_v2 {
+    color: var(--ataiv2-text-color);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.atai_v2 * {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.atai_v2 p {
+    margin-bottom: 0;
+    margin-block: 0;
+}
+
+.atai_v2 a {
+    color: inherit;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.atai_v2 img {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+.atai_v2 label {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.atai_v2 input {
+    display: none !important;
+}
+
+.stretched {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.stretched::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+}
+
+/*  Personnalisation de la sélection */
+.atai_v2 ::selection {
+    background-color: var(--ataiv2-secondary-color);
+    color: var(--ataiv2-primary-color);
+}
+
+/* ==================================================
+    BOUTONS & ICÔNES
+===================================================== */
+
+/*  Styles globaux des icônes */
+.atai_v2 .btn-icon {
+    display: inline-flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    transition: background-image .15s ease-out;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+.atai_v2 .btn-icon > p {
+    display: flex;
+    position: absolute;
+    right: -7px;
+    bottom: -3px;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    cursor: default;
+    border: 2px solid var(--ataiv2-notif-bg);
+    border-radius: 50%;
+    background-color: var(--ataiv2-notif-bg);
+    width: 14px;
+    height: 14px;
+    overflow: hidden;
+    color: var(--ataiv2-primary-color);
+    font-weight: 500;
+    font-size: 10px;
+}
+
+/*  Icône de retour en arrière - flêche (état par défaut) */
+.atai_v2 .icon-back {
+    opacity: 1;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M5 12l14 0' /%3E%3Cpath d='M5 12l4 4' /%3E%3Cpath d='M5 12l4 -4' /%3E%3C/svg%3E");
+}
+
+/*  Icône notifications (état par défaut) */
+.atai_v2 .icon-notif {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M15 17h-11a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6a2 2 0 1 1 4 0a7 7 0 0 1 4 6v1.5' /%3E%3Cpath d='M9 17v1a3 3 0 0 0 6 0v-1' /%3E%3Cpath d='M19 16v3' /%3E%3Cpath d='M19 22v.01' /%3E%3C/svg%3E");
+}
+
+/*  Icône messagerie (état par défaut) */
+.atai_v2 .icon-mailbox {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M15 19h-10a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v5.5' /%3E%3Cpath d='M3 7l9 6l9 -6' /%3E%3Cpath d='M19 16v3' /%3E%3Cpath d='M19 22v.01' /%3E%3C/svg%3E");
+}
+
+/*  Icône accueil (état par défaut) */
+.atai_v2 .icon-home {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M5 12l-2 0l9 -9l9 9l-2 0' /%3E%3Cpath d='M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7' /%3E%3Cpath d='M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6' /%3E%3C/svg%3E");
+}
+
+/*  Icône accueil (état au survol/activé) */
+.atai_v2 .icon-home:hover,
+.atai_v2 input#tab-home:checked ~ .app-layout .app-footer label[for="tab-home"] .icon-home  {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M12.707 2.293l9 9c.63 .63 .184 1.707 -.707 1.707h-1v6a3 3 0 0 1 -3 3h-1v-7a3 3 0 0 0 -2.824 -2.995l-.176 -.005h-2a3 3 0 0 0 -3 3v7h-1a3 3 0 0 1 -3 -3v-6h-1c-.89 0 -1.337 -1.077 -.707 -1.707l9 -9a1 1 0 0 1 1.414 0m.293 11.707a1 1 0 0 1 1 1v7h-4v-7a1 1 0 0 1 .883 -.993l.117 -.007z' /%3E%3C/svg%3E");
+}
+
+/*  Icône profil (état par défaut) */
+.atai_v2 .icon-profile {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0' /%3E%3Cpath d='M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2' /%3E%3C/svg%3E");
+}
+
+/*  Icône profil (état au survol/activé) */
+.atai_v2 .icon-profile:hover,
+.atai_v2 input#tab-profile:checked ~ .app-layout .app-footer label[for="tab-profile"] .icon-profile {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z' /%3E%3Cpath d='M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z' /%3E%3C/svg%3E");
+}
+
+/*  Icône intérêts (état par défaut) */
+.atai_v2 .icon-interests {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0' /%3E%3Cpath d='M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0' /%3E%3Cpath d='M3 6l0 13' /%3E%3Cpath d='M12 6l0 13' /%3E%3Cpath d='M21 6l0 13' /%3E%3C/svg%3E");
+}
+
+/*  Icône intérêts (état au survol/activé) */
+.atai_v2 .icon-interests:hover,
+.atai_v2 input#tab-interests:checked ~ .app-layout .app-footer label[for="tab-interests"] .icon-interests {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M12.088 4.82a10 10 0 0 1 9.412 .314a1 1 0 0 1 .493 .748l.007 .118v13a1 1 0 0 1 -1.5 .866a8 8 0 0 0 -8 0a1 1 0 0 1 -1 0a8 8 0 0 0 -7.733 -.148l-.327 .18l-.103 .044l-.049 .016l-.11 .026l-.061 .01l-.117 .006h-.042l-.11 -.012l-.077 -.014l-.108 -.032l-.126 -.056l-.095 -.056l-.089 -.067l-.06 -.056l-.073 -.082l-.064 -.089l-.022 -.036l-.032 -.06l-.044 -.103l-.016 -.049l-.026 -.11l-.01 -.061l-.004 -.049l-.002 -.068v-13a1 1 0 0 1 .5 -.866a10 10 0 0 1 9.412 -.314l.088 .044l.088 -.044z' /%3E%3C/svg%3E");
+}
+
+/*  Icône amis (état par défaut) */
+.atai_v2 .icon-friends {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572' /%3E%3C/svg%3E");
+}
+
+/*  Icône amis (état au survol/activé) */
+.atai_v2 .icon-friends:hover,
+.atai_v2 input#tab-friends:checked ~ .app-layout .app-footer label[for="tab-friends"] .icon-friends {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M6.979 3.074a6 6 0 0 1 4.988 1.425l.037 .033l.034 -.03a6 6 0 0 1 4.733 -1.44l.246 .036a6 6 0 0 1 3.364 10.008l-.18 .185l-.048 .041l-7.45 7.379a1 1 0 0 1 -1.313 .082l-.094 -.082l-7.493 -7.422a6 6 0 0 1 3.176 -10.215z' /%3E%3C/svg%3E");
+}
+
+/*  Icône tchat (état par défaut) */
+.atai_v2 .icon-tchat {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M8 9h8' /%3E%3Cpath d='M8 13h6' /%3E%3Cpath d='M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z' /%3E%3C/svg%3E");
+}
+
+/*  Icône tchat (état au survol/activé) */
+.atai_v2 .icon-tchat:hover,
+.atai_v2 input#tab-tchat:checked ~ .app-layout .app-footer label[for="tab-tchat"] .icon-tchat {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M18 3a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-4.724l-4.762 2.857a1 1 0 0 1 -1.508 -.743l-.006 -.114v-2h-1a4 4 0 0 1 -3.995 -3.8l-.005 -.2v-8a4 4 0 0 1 4 -4zm-4 9h-6a1 1 0 0 0 0 2h6a1 1 0 0 0 0 -2m2 -4h-8a1 1 0 1 0 0 2h8a1 1 0 0 0 0 -2' /%3E%3C/svg%3E");
+}
+
+
+/* ==================================================
+    APPARENCE DU MOBILE
+===================================================== */
+
+/*  Téléphone mobile */
+.atai_v2 .phone-device02 {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    row-gap: 28px;
+    justify-items: center;
+    margin: auto;
+    box-shadow: var(--ataiv2-device-shadow);
+    border: var(--ataiv2-device-border);
+    border-radius: var(--ataiv2-device-radius);
+    background-color: var(--ataiv2-device-bg-color);
+    padding: var(--ataiv2-device-padding);
+    width: 100%;
+    min-width: 400px;
+    max-width: var(--ataiv2-device-width);
+    height: var(--ataiv2-device-height);
+    overflow: hidden;
+}
+
+/*  Micro du téléphone */
+.atai_v2 .phone-device02 > .phone-speaker {
+    border: 1px solid var(--ataiv2-medium-gray);
+    border-radius: 36px;
+    width: 50px;
+    height: 6px;
+}
+
+/*  Ecran du téléphone */
+.atai_v2 .phone-device02 > .phone-screen {
+    cursor: default;
+    background-image: var(--ataiv2-app-bg-image);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--ataiv2-screen-bg-color);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/*  Bouton du téléphone */
+.atai_v2 .phone-device02 > .phone-home {
+    border: 1px solid var(--ataiv2-medium-gray);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+}
+
+/* ==================================================
+    APP ATAI
+===================================================== */
+
+/*  Grille de l'app */
+.atai_v2 .app-layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    row-gap: 4px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.atai_v2 .app-layout > * {
+    padding: 16px;
+}
+
+/*  Navigation (haut et bas) */
+.atai_v2 .app-layout > .app-nav {
+    display: flex;
+    align-items: center;
+    background-color: var(--ataiv2-primary-color);
+    width: 100%;
+    height: var(--ataiv2-app-nav-height);
+}
+
+/*  Header
+===================================================== */
+
+.atai_v2 .app-header {
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.atai_v2 .app-header > .nav-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+.atai_v2 .app-header > .nav-group > .user-pseudo {
+    display: -webkit-box;
+    font-weight: 600;
+    font-size: 16px !important;
+    letter-spacing: .75px;
+    text-wrap: 16px;
+    -webkit-box-orient: vertical;
+    max-width: 98%;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+.atai_v2 .app-header > .btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+.atai_v2 .app-header > .btn-group > img.app-avatar {
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+/*  Footer
+===================================================== */
+
+.atai_v2 .app-layout > .app-footer {
+    justify-content: center;
+    gap: 32px;
+}
+
+/* ==================================================
+    CONTENU DES PAGES DE L'APP
+===================================================== */
+
+/*  Corps de l'app */
+.atai_v2 .app-layout > .app-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/*  Gestion du passage d'une page à l'autre */
+.atai_v2 input#tab-home:checked ~ .app-layout .app-body #page-home .page-content,
+.atai_v2 input#tab-profile:checked ~ .app-layout .app-body #page-profile .page-content,
+.atai_v2 input#tab-interests:checked ~ .app-layout .app-body #page-interests .page-content,
+.atai_v2 input#tab-friends:checked ~ .app-layout .app-body #page-friends .page-content,
+.atai_v2 input#tab-tchat:checked ~ .app-layout .app-body #page-tchat .page-content {
+    transform: translate(0%);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.atai_v2 .page-content {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    transform: translate(100%);
+    opacity: 0;
+    transition: .5s;
+    padding: 32px;
+    overflow: auto;
+    scrollbar-color: var(--ataiv2-app-scrollbar-color) var(--ataiv2-app-scrollbar-background);
+    scrollbar-width: var(--ataiv2-app-scrollbar-width);
+    pointer-events: none;
+}
+
+.atai_v2 input:checked ~ .app-layout .app-nav .nav-group .icon-back {
+    opacity: 1;
+    transition: opacity .15s ease-out;
+}
+
+.atai_v2 input#tab-home:checked ~ .app-layout .app-nav .nav-group .icon-back {
+    opacity: 0;
+    transition: opacity .15s ease-out;
+}
+
+.atai_v2 input:checked ~ .app-layout .app-nav .nav-group .user-pseudo {
+    transition: margin .2s ease-out;
+    margin-left: unset;
+}
+
+.atai_v2 input#tab-home:checked ~ .app-layout .app-nav .nav-group .user-pseudo {
+    transition: margin .2s ease-out;
+    margin-left: -32px;
+}
+
+/*  Page d'accueil
+===================================================== */
+
+.atai_v2 #page-home > .page-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+}
+
+.atai_v2 #page-home .atai-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+    background-image: url("https://zupimages.net/up/25/09/fj5h.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+}
+
+/*  Page de profil
+===================================================== */
+
+.atai_v2 #page-profile .page-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+}
+
+.atai_v2 #page-profile .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.atai_v2 #page-profile img.user-avatar {
+    margin-bottom: 16px;
+    margin-inline: auto;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    width: 125px;
+    height: 125px;
+}
+
+.atai_v2 #page-profile p.user-name {
+    margin-bottom: 6px;
+    border-radius: 16px;
+    background-color: #eee0e7;
+    padding: 2px 24px;
+    color: #490a24;
+    font-weight: 600;
+    font-size: 16px
+}
+
+.atai_v2 #page-profile p.user-id {
+    opacity: .875;
+    font-size: 14px;
+    letter-spacing: .25px;
+}
+
+.atai_v2 #page-profile .user-profile {
+    margin-bottom: 32px;
+    margin-inline: auto;
+    border: 2px solid #f1bbd5;
+    border-radius: 5px;
+    padding: 12px 16px;
+    width: 98%;
+    font-size: 14px;
+    line-height: 2.2;
+}
+
+.atai_v2 #page-profile .user-profile > p {
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 4px;
+}
+
+.atai_v2 #page-profile .user-profile > p::before {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 22px;
+    content: "";
+}
+
+.atai_v2 #page-profile .user-profile > p.user-birth::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 5m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z' /%3E%3Cpath d='M7 16l3 -3l3 3' /%3E%3Cpath d='M8 13c-.789 0 -2 -.672 -2 -1.5s.711 -1.5 1.5 -1.5c1.128 -.02 2.077 1.17 2.5 3c.423 -1.83 1.372 -3.02 2.5 -3c.789 0 1.5 .672 1.5 1.5s-1.211 1.5 -2 1.5h-4z' /%3E%3C/svg%3E");
+}
+
+.atai_v2 #page-profile .user-profile > p.user-activity::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z' /%3E%3Cpath d='M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2' /%3E%3Cpath d='M12 12l0 .01' /%3E%3Cpath d='M3 13a20 20 0 0 0 18 0' /%3E%3C/svg%3E");
+}
+
+.atai_v2 #page-profile .user-profile > p.user-location::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0' /%3E%3Cpath d='M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z' /%3E%3C/svg%3E");
+}
+
+.atai_v2 #page-profile .user-profile > p.user-status::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572' /%3E%3C/svg%3E");
+}
+
+.atai_v2 #page-profile .user-profile > p > span {
+    font-weight: 500;
+}
+
+/*  Page Intérêts
+===================================================== */
+
+.atai_v2 #page-interests .page-content .user-desc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.atai_v2 #page-interests .user-desc > img {
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    max-width: 105px;
+    height: auto;
+}
+
+.atai_v2 #page-interests .qualities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-height: 100px;
+    overflow: auto;
+    scrollbar-color: var(--ataiv2-app-scrollbar-color) var(--ataiv2-app-scrollbar-background);
+    scrollbar-width: var(--ataiv2-app-scrollbar-width);
+}
+
+.atai_v2 #page-interests .qualities > p.quality {
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding: 2px 10px;
+    width: fit-content;
+    color: #490a24;
+    font-size: 12px;
+}
+
+.atai_v2 #page-interests .user-stats {
+    column-count: 2;
+    margin-bottom: 32px;
+    margin-inline: auto;
+    border: 2px solid #f1bbd5;
+    border-radius: 5px;
+    padding: 12px 16px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.7;
+}
+.atai_v2 #page-interests .user-stats p {
+    display: -webkit-box;
+    text-wrap: 16px;
+    -webkit-box-orient: vertical;
+    max-width: 98%;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+.atai_v2 #page-interests .user-stats p > span {
+    font-weight: 500;
+}
+
+.atai_v2 #page-interests .interests-heading {
+    margin-bottom: 16px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+}
+
+.atai_v2 #page-interests .interests-heading::before {
+    content: "Ce que j'aime";
+}
+
+.atai_v2 #page-interests .interests-heading::after {
+    display: block;
+    margin-top: 6px;
+    margin-inline: auto;
+    background-color: #ffffff;
+    width: 75%;
+    height: 2px;
+    content: "";
+}
+
+.atai_v2 #page-interests .interests-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.atai_v2 #page-interests .interests-list > p {
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding: 2px 16px;
+    width: fit-content;
+    color: #490a24;
+    font-size: 12px;
+}
+
+/*  Page amis
+===================================================== */
+
+.atai_v2 #page-friends .page-content .friends-list {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 16px;
+}
+
+.atai_v2 #page-friends .friend-card {
+    display: grid;
+    position: relative;
+    justify-items: center;
+    transition: box-shadow .15s ease-out;
+    box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px;
+    border-radius: 5px;
+    background-color: #f1bbd55e;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.atai_v2 #page-friends .friend-card:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 10px;
+}
+
+.atai_v2 #page-friends .friend-card > img.friend-avatar {
+    margin-bottom: 4px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    max-width: 60px;
+    height: auto;
+}
+
+.atai_v2 #page-friends .friend-card > p.friend-name,
+.atai_v2 #page-friends .friend-card > a.friend-pseudo {
+    display: -webkit-box;
+    text-wrap: 16px;
+    -webkit-box-orient: vertical;
+    max-width: 98%;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+.atai_v2 #page-friends .friend-card > p.friend-name {
+    font-weight: 600;
+    font-size: 12px !important;
+}
+
+.atai_v2 #page-friends .friend-card > a.friend-pseudo {
+    opacity: .875;
+    font-size: 11px !important;
+    letter-spacing: .25px;
+}
+
+/*  Page Tchat
+===================================================== */
+
+.atai_v2 #page-tchat > .page-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+}
+
+.atai_v2 .btn {
+    display: inline-flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    background-color: #ffffff;
+    width: fit-content;
+    overflow: hidden;
+    color: inherit;
+    font-weight: 500;
+    line-height: inherit;
+}
+
+.atai_v2 .btn-primary {
+    transition: box-shadow .15s ease-out, background-color .15s ease-out, border-color .15s ease-out;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 5px;
+    border: #eee7ea;
+    border-radius: 8px;
+    background-color: #eee7ea;
+    padding: 8px 24px;
+    color: #490a24 !important;
+    font-size: 14px !important;
+    letter-spacing: 0.25px;
+}
+
+.atai_v2 .btn-primary:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 10px;
+    border: #edd6e1;
+    background-color: #edd6e1;
+}
+
+.atai_v2 .btn-primary > span {
+    display: inline-flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.atai_v2 .btn-primary > span::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(73 10 36)' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round' class='icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M17 7l-10 10' /%3E%3Cpath d='M8 7l9 0l0 9' /%3E%3C/svg%3E");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    content: "";
+}
