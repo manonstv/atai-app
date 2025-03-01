@@ -3,9 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATAI APP</title>
+    <title>ATAI App</title>
+    <link rel="stylesheet" href="manonstv.github.io/atai-app/atv2.css">
 </head>
 <body>
+
+    <!-- Draft only -->
+    <style>
+        body {
+            min-height: 100dvh;
+            height: 100%;
+            display: grid;
+            align-content: center;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <div class="atai_v2">
+        <div class="phone-device02">
+            <div class="phone-speaker"></div>
+            <div class="phone-screen">
+                <input type="radio" id="tab-home" name="tab">
+                <input type="radio" id="tab-profile" name="tab" checked>
+                <input type="radio" id="tab-interests" name="tab">
+                <input type="radio" id="tab-friends" name="tab">
+                <input type="radio" id="tab-tchat" name="tab">
+                <div class="app-layout">
+                    <div class="app-nav app-header">
+                        <div class="nav-group">
+                            <label for="tab-home">
+                                <i class="btn-icon icon-back"></i>
+                            </label>
+                            <p class="user-pseudo">tsukimi_orikasa</p>
+                        </div>
+                        <div class="btn-group">
+                            <i class="btn-icon icon-notif">
+                                <p class="notif-number">5</p>
+                            </i>
+                            <i class="btn-icon icon-mailbox">
+                                <p class="mail-number">3</p>
+                            </i>
+                            <img class="app-avatar" src="https://zupimages.net/up/25/07/lexe.jpeg" alt="Avatar du profil ATAI du personnage">
+                        </div>
+                    </div>
+                    <div class="app-body">
+                        <div class="page-tab" id="page-home">
+                            <div class="page-content">
+                                <div class="atai-logo"></div>
+                                <label for="tab-profile">
+                                    <div class="btn btn-primary">Commencer</div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="page-tab" id="page-profile">
+                            <div class="page-content">
+                                <div class="user-info">
+                                    <img class="user-avatar" src="https://zupimages.net/up/25/07/lexe.jpeg" alt="...">
+                                    <p class="user-name">Tsukimi Orikasa</p>
+                                    <p class="user-id">@TsukimiOrikasa</p>
+                                </div>
+                                <div class="user-profile">
+                                    <p class="user-birth"><span>Anniversaire : </span>11 janvier</p>
+                                    <p class="user-activity"><span>Emploi : </span>Vendeuse chez God's Pleasure</p>
+                                    <p class="user-location"><span>Localisation : </span>Tokyo (Setagaya)</p>
+                                    <p class="user-status"><span>Statut marital : </span>Célibataire</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-tab" id="page-interests">
+                            <div class="page-content">
+                                <div class="user-desc">
+                                    <img src="https://zupimages.net/up/25/07/lexe.jpeg" alt="...">
+                                    <div class="qualities">
+                                        <p class="quality">Gameuse</p>
+                                        <p class="quality">Curieuse</p>
+                                        <p class="quality">Sportive</p>
+                                        <p class="quality">Cat person</p>
+                                        <p class="quality">Fêtarde</p>
+                                        <p class="quality">Hot !</p>
+                                        <p class="quality">Oiseau de nuit</p>
+                                        <p class="quality">Netflix & chill</p>
+                                    </div>
+                                </div>
+                                <div class="user-stats">
+                                    <p><span>Âge : </span>28 ans</p>
+                                    <p><span>Genre : </span>féminin</p>
+                                    <p><span>Origines : </span>japonaise</p>
+                                    <p><span>Taille : </span>1m72</p>
+                                    <p><span>Poids : </span>52kg</p>
+                                    <p><span>Yeux : </span>bleus</p>
+                                    <p><span>Tatouages : </span>non</p>
+                                    <p><span>Tabac : </span>souvent</p>
+                                    <p><span>Alcool : </span>festif</p>
+                                    <p><span>Drogues : </span>jamais !</p>
+                                    <p><span>Sport : </span>fitness</p>
+                                    <p><span>Animaux : </span>un chat</p>
+                                </div>
+
+                                <p class="interests-heading"></p>
+                                <div class="interests-list">
+                                    <p class="interest">Intérêt 1</p>
+                                    <p class="interest">Intérêt 2</p>
+                                    <p class="interest">Intérêt 3</p>
+                                    <p class="interest">Intérêt 4</p>
+                                    <p class="interest">Intérêt 5</p>
+                                    <p class="interest">Intérêt 6</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-tab" id="page-friends">
+                            <div class="page-content">
+                                <div class="friends-list">
+                                    <div class="friend-card">
+                                        <img class="friend-avatar" src="https://zupimages.net/up/25/09/71sg.jpg" alt="...">
+                                        <p class="friend-name">Prénom Nom</p>
+                                        <a class="stretched friend-pseudo" href="#">@atai_pseudo</a>
+                                    </div>
+                                    <div class="friend-card">
+                                        <img class="friend-avatar" src="https://zupimages.net/up/25/09/71sg.jpg" alt="...">
+                                        <p class="friend-name">Prénom Nom</p>
+                                        <a class="stretched friend-pseudo" href="#">@atai_pseudo</a>
+                                    </div>
+                                    <div class="friend-card">
+                                        <img class="friend-avatar" src="https://zupimages.net/up/25/09/71sg.jpg" alt="...">
+                                        <p class="friend-name">Prénom Nom</p>
+                                        <a class="stretched friend-pseudo" href="#">@atai_pseudo</a>
+                                    </div>
+                                    <div class="friend-card">
+                                        <img class="friend-avatar" src="https://zupimages.net/up/25/09/71sg.jpg" alt="...">
+                                        <p class="friend-name">Prénom Nom</p>
+                                        <a class="stretched friend-pseudo" href="#">@atai_pseudo</a>
+                                    </div>
+                                    <div class="friend-card">
+                                        <img class="friend-avatar" src="https://zupimages.net/up/25/09/71sg.jpg" alt="...">
+                                        <p class="friend-name">Prénom Nom</p>
+                                        <a class="stretched friend-pseudo" href="#">@atai_pseudo</a>
+                                    </div>
+                                    <div class="friend-card">
+                                        <img class="friend-avatar" src="https://zupimages.net/up/25/09/71sg.jpg" alt="...">
+                                        <p class="friend-name">Prénom Nom</p>
+                                        <a class="stretched friend-pseudo" href="#">@atai_pseudo</a>
+                                    </div>
+                                    <div class="friend-card">
+                                        <img class="friend-avatar" src="https://zupimages.net/up/25/09/71sg.jpg" alt="...">
+                                        <p class="friend-name">Prénom Nom</p>
+                                        <a class="stretched friend-pseudo" href="#">@atai_pseudo</a>
+                                    </div>
+                                    <div class="friend-card">
+                                        <img class="friend-avatar" src="https://zupimages.net/up/25/09/71sg.jpg" alt="...">
+                                        <p class="friend-name">Prénom Nom</p>
+                                        <a class="stretched friend-pseudo" href="#">@atai_pseudo</a>
+                                    </div>
+                                    <div class="friend-card">
+                                        <img class="friend-avatar" src="https://zupimages.net/up/25/09/71sg.jpg" alt="...">
+                                        <p class="friend-name">Prénom Nom</p>
+                                        <a class="stretched friend-pseudo" href="#">@atai_pseudo</a>
+                                    </div>
+                                    <div class="friend-card">
+                                        <img class="friend-avatar" src="https://zupimages.net/up/25/09/71sg.jpg" alt="...">
+                                        <p class="friend-name">Prénom Nom</p>
+                                        <a class="stretched friend-pseudo" href="#">@atai_pseudo</a>
+                                    </div>
+                                    <div class="friend-card">
+                                        <img class="friend-avatar" src="https://zupimages.net/up/25/09/71sg.jpg" alt="...">
+                                        <p class="friend-name">Prénom Nom</p>
+                                        <a class="stretched friend-pseudo" href="#">@atai_pseudo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-tab" id="page-tchat">
+                            <div class="page-content">
+                                <a class="btn btn-primary" href="#" target="_blank"><span>Singlechat</span></a>
+                                <a class="btn btn-primary" href="#" target="_blank"><span>Messagerie ATAI</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app-nav app-footer">
+                        <label for="tab-home">
+                            <i class="btn-icon icon-home"></i>
+                        </label>
+                        <label for="tab-profile">
+                            <i class="btn-icon icon-profile"></i>
+                        </label>
+                        <label for="tab-interests">
+                            <i class="btn-icon icon-interests"></i>
+                        </label>
+                        <label for="tab-friends">
+                            <i class="btn-icon icon-friends"></i>
+                        </label>
+                        <label for="tab-tchat">
+                            <i class="btn-icon icon-tchat"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="phone-home"></div>
+        </div>
+    </div>
 
 </body>
 </html>
